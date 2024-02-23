@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox_lockOrderInversion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>240</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Lock Order Inversion</string>
+    </property>
+    <widget class="QRadioButton" name="radioButton_lockOrderSame">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Acquire in same order</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_lockOrderInversion</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_lockOrderInverted">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Acquire in inverted order</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_lockOrderInversion</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_testLockOrderInversion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Test</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_events">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>771</width>
+      <height>281</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_events">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Events</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>radioButton_lockOrderSame</tabstop>
+  <tabstop>radioButton_lockOrderInverted</tabstop>
+  <tabstop>pushButton_testLockOrderInversion</tabstop>
+  <tabstop>textBrowser_events</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup_lockOrderInversion"/>
+ </buttongroups>
+</ui>
