@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>810</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox_lockOrderInversion">
+   <widget class="QGroupBox" name="groupBox_lockOrder">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Lock Order Inversion</string>
+     <string>Lock Order</string>
     </property>
     <widget class="QRadioButton" name="radioButton_lockOrderSame">
      <property name="geometry">
@@ -39,7 +39,7 @@
       <string>Acquire in same order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_lockOrderInversion</string>
+      <string notr="true">buttonGroup_lockOrder</string>
      </attribute>
     </widget>
     <widget class="QRadioButton" name="radioButton_lockOrderInverted">
@@ -55,11 +55,11 @@
       <string>Acquire in inverted order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_lockOrderInversion</string>
+      <string notr="true">buttonGroup_lockOrder</string>
      </attribute>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton_testLockOrderInversion">
+   <widget class="QPushButton" name="pushButton_testLockOrder">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -77,8 +77,8 @@
      <rect>
       <x>10</x>
       <y>270</y>
-      <width>771</width>
-      <height>281</height>
+      <width>1260</width>
+      <height>490</height>
      </rect>
     </property>
    </widget>
@@ -101,7 +101,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1280</width>
      <height>21</height>
     </rect>
    </property>
@@ -111,12 +111,12 @@
  <tabstops>
   <tabstop>radioButton_lockOrderSame</tabstop>
   <tabstop>radioButton_lockOrderInverted</tabstop>
-  <tabstop>pushButton_testLockOrderInversion</tabstop>
+  <tabstop>pushButton_testLockOrder</tabstop>
   <tabstop>textBrowser_events</tabstop>
  </tabstops>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_lockOrderInversion"/>
+  <buttongroup name="buttonGroup_lockOrder"/>
  </buttongroups>
 </ui>

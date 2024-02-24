@@ -21,7 +21,7 @@ public:
     ~MainWindow();
 
     // Button handlers
-    void handleButton_testLockOrderInversion();
+    void handleButton_testLockOrder();
 
     // Tests
     void runTest(QString group, int id, QString name);

@@ -18,11 +18,11 @@ MainWindow::MainWindow(QWidget *parent)
     // Test Events
     event_display.set_display(ui->textBrowser_events);
 
-    // Lock Order Inversion group
-    ui->buttonGroup_lockOrderInversion->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_INVERSION_SAME);
-    ui->buttonGroup_lockOrderInversion->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERSION_INVERTED);
+    // Lock Order  group
+    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_SAME);
+    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERTED);
     ui->radioButton_lockOrderSame->setChecked(true);
-    connect(ui->pushButton_testLockOrderInversion, &QPushButton::released, this, &MainWindow::handleButton_testLockOrderInversion);
+    connect(ui->pushButton_testLockOrder, &QPushButton::released, this, &MainWindow::handleButton_testLockOrder);
 }
 
 MainWindow::~MainWindow()
@@ -31,9 +31,9 @@ MainWindow::~MainWindow()
 }
 
 // Button handlers
-void MainWindow::handleButton_testLockOrderInversion()
+void MainWindow::handleButton_testLockOrder()
 {
-    runTest(ui->groupBox_lockOrderInversion->title(), ui->buttonGroup_lockOrderInversion->checkedId(), ui->buttonGroup_lockOrderInversion->checkedButton()->text());
+    runTest(ui->groupBox_lockOrder->title(), ui->buttonGroup_lockOrder->checkedId(), ui->buttonGroup_lockOrder->checkedButton()->text());
 }
 
 // Tests
@@ -104,12 +104,12 @@ void MainWindow::doTest()
 
 void MainWindow::disableAllButtons()
 {
-    ui->pushButton_testLockOrderInversion->setDisabled(true);
+    ui->pushButton_testLockOrder->setDisabled(true);
 }
 
 void MainWindow::enableAllButtons()
 {
-    ui->pushButton_testLockOrderInversion->setDisabled(false);
+    ui->pushButton_testLockOrder->setDisabled(false);
 }
 
 bool MainWindow::event(QEvent* event)
