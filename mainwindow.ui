@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox_lockOrder">
+   <widget class="QGroupBox" name="lockOrder_groupBox">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -39,7 +39,7 @@
       <string>Acquire in same order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_lockOrder</string>
+      <string notr="true">lockOrder_buttonGroup</string>
      </attribute>
     </widget>
     <widget class="QRadioButton" name="radioButton_lockOrderInverted">
@@ -55,21 +55,21 @@
       <string>Acquire in inverted order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_lockOrder</string>
+      <string notr="true">lockOrder_buttonGroup</string>
      </attribute>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton_testLockOrder">
+   <widget class="QPushButton" name="lockOrder_pushButton">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>120</y>
-      <width>80</width>
+      <width>120</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Test</string>
+     <string>Test Lock Order</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_events">
@@ -82,7 +82,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_events">
+   <widget class="QLabel" name="textBrowser_events_label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -93,6 +93,64 @@
     </property>
     <property name="text">
      <string>Events</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="sync_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>240</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Sync</string>
+    </property>
+    <widget class="QRadioButton" name="radioButton_syncLatch">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sync using a Latch</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">sync_buttonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_syncBarrier">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sync using a Barrier</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">sync_buttonGroup</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="sync_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>120</y>
+      <width>120</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Test Sync</string>
     </property>
    </widget>
   </widget>
@@ -111,12 +169,13 @@
  <tabstops>
   <tabstop>radioButton_lockOrderSame</tabstop>
   <tabstop>radioButton_lockOrderInverted</tabstop>
-  <tabstop>pushButton_testLockOrder</tabstop>
+  <tabstop>lockOrder_pushButton</tabstop>
   <tabstop>textBrowser_events</tabstop>
  </tabstops>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_lockOrder"/>
+  <buttongroup name="lockOrder_buttonGroup"/>
+  <buttongroup name="sync_buttonGroup"/>
  </buttongroups>
 </ui>

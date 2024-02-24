@@ -18,11 +18,17 @@ MainWindow::MainWindow(QWidget *parent)
     // Test Events
     event_display.set_display(ui->textBrowser_events);
 
-    // Lock Order  group
-    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_SAME);
-    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERTED);
+    // Lock Order group
+    ui->lockOrder_buttonGroup->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_SAME);
+    ui->lockOrder_buttonGroup->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERTED);
     ui->radioButton_lockOrderSame->setChecked(true);
-    connect(ui->pushButton_testLockOrder, &QPushButton::released, this, &MainWindow::handleButton_testLockOrder);
+    connect(ui->lockOrder_pushButton, &QPushButton::released, this, &MainWindow::handleButton_testLockOrder);
+
+    // Lock Order sync
+    ui->sync_buttonGroup->setId(ui->radioButton_syncLatch, TEST_SYNC_LATCH);
+    ui->sync_buttonGroup->setId(ui->radioButton_syncBarrier, TEST_SYNC_BARRIER);
+    ui->radioButton_syncLatch->setChecked(true);
+    connect(ui->sync_pushButton, &QPushButton::released, this, &MainWindow::handleButton_testSync);
 }
 
 MainWindow::~MainWindow()
@@ -33,7 +39,12 @@ MainWindow::~MainWindow()
 // Button handlers
 void MainWindow::handleButton_testLockOrder()
 {
-    runTest(ui->groupBox_lockOrder->title(), ui->buttonGroup_lockOrder->checkedId(), ui->buttonGroup_lockOrder->checkedButton()->text());
+    runTest(ui->lockOrder_groupBox->title(), ui->lockOrder_buttonGroup->checkedId(), ui->lockOrder_buttonGroup->checkedButton()->text());
+}
+
+void MainWindow::handleButton_testSync()
+{
+    runTest(ui->sync_groupBox->title(), ui->sync_buttonGroup->checkedId(), ui->sync_buttonGroup->checkedButton()->text());
 }
 
 // Tests
@@ -104,12 +115,12 @@ void MainWindow::doTest()
 
 void MainWindow::disableAllButtons()
 {
-    ui->pushButton_testLockOrder->setDisabled(true);
+    ui->lockOrder_pushButton->setDisabled(true);
 }
 
 void MainWindow::enableAllButtons()
 {
-    ui->pushButton_testLockOrder->setDisabled(false);
+    ui->lockOrder_pushButton->setDisabled(false);
 }
 
 bool MainWindow::event(QEvent* event)
