@@ -19,16 +19,22 @@ MainWindow::MainWindow(QWidget *parent)
     event_display.set_display(ui->textBrowser_events);
 
     // Lock Order group
-    ui->lockOrder_buttonGroup->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_SAME);
-    ui->lockOrder_buttonGroup->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERTED);
+    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderSame, TEST_LOCK_ORDER_SAME);
+    ui->buttonGroup_lockOrder->setId(ui->radioButton_lockOrderInverted, TEST_LOCK_ORDER_INVERTED);
     ui->radioButton_lockOrderSame->setChecked(true);
     connect(ui->lockOrder_pushButton, &QPushButton::released, this, &MainWindow::handleButton_testLockOrder);
 
-    // Lock Order sync
-    ui->sync_buttonGroup->setId(ui->radioButton_syncLatch, TEST_SYNC_LATCH);
-    ui->sync_buttonGroup->setId(ui->radioButton_syncBarrier, TEST_SYNC_BARRIER);
+    // Sync group
+    ui->buttonGroup_sync->setId(ui->radioButton_syncLatch, TEST_SYNC_LATCH);
+    ui->buttonGroup_sync->setId(ui->radioButton_syncBarrier, TEST_SYNC_BARRIER);
     ui->radioButton_syncLatch->setChecked(true);
     connect(ui->sync_pushButton, &QPushButton::released, this, &MainWindow::handleButton_testSync);
+
+    // Promise group
+    ui->buttonGroup_promise->setId(ui->radioButton_matrixCalc, TEST_PROMISE_MATRIX_CALC);
+    ui->buttonGroup_promise->setId(ui->radioButton_withException, TEST_PROMISE_WITH_EXCEPTION);
+    ui->radioButton_matrixCalc->setChecked(true);
+    connect(ui->promise_pushButton, &QPushButton::released, this, &MainWindow::handleButton_testPromise);
 }
 
 MainWindow::~MainWindow()
@@ -39,12 +45,17 @@ MainWindow::~MainWindow()
 // Button handlers
 void MainWindow::handleButton_testLockOrder()
 {
-    runTest(ui->lockOrder_groupBox->title(), ui->lockOrder_buttonGroup->checkedId(), ui->lockOrder_buttonGroup->checkedButton()->text());
+    runTest(ui->lockOrder_groupBox->title(), ui->buttonGroup_lockOrder->checkedId(), ui->buttonGroup_lockOrder->checkedButton()->text());
 }
 
 void MainWindow::handleButton_testSync()
 {
-    runTest(ui->sync_groupBox->title(), ui->sync_buttonGroup->checkedId(), ui->sync_buttonGroup->checkedButton()->text());
+    runTest(ui->sync_groupBox->title(), ui->buttonGroup_sync->checkedId(), ui->buttonGroup_sync->checkedButton()->text());
+}
+
+void MainWindow::handleButton_testPromise()
+{
+    runTest(ui->promise_groupBox->title(), ui->buttonGroup_promise->checkedId(), ui->buttonGroup_promise->checkedButton()->text());
 }
 
 // Tests
@@ -88,7 +99,16 @@ void MainWindow::doTest()
     QProcess process;
 
     // Set the command to execute and arguments
-    QString program = "../thread-tester-engine/build/thread-tester-engine";
+    QString program = "../thread-tester-ui-engines/";
+    if (test_id > TEST_PROMISE_MATRIX_CALC)
+    {
+        program += "thread-tester-engine";
+    }
+    else
+    {
+        program += "thread-tester-engine-promises";
+    }
+
     QString test_id_str;
     test_id_str.setNum(test_id);
     QStringList arguments = { test_id_str };

@@ -6,4 +6,7 @@ const int TEST_LOCK_ORDER_INVERTED = 99;
 const int TEST_SYNC_LATCH = 98;
 const int TEST_SYNC_BARRIER = 97;
 
+const int TEST_PROMISE_MATRIX_CALC = 50;
+const int TEST_PROMISE_WITH_EXCEPTION = 49;
+
 #endif // TEST_IDS_H

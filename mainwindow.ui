@@ -39,7 +39,7 @@
       <string>Acquire in same order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">lockOrder_buttonGroup</string>
+      <string notr="true">buttonGroup_lockOrder</string>
      </attribute>
     </widget>
     <widget class="QRadioButton" name="radioButton_lockOrderInverted">
@@ -55,7 +55,7 @@
       <string>Acquire in inverted order</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">lockOrder_buttonGroup</string>
+      <string notr="true">buttonGroup_lockOrder</string>
      </attribute>
     </widget>
    </widget>
@@ -120,7 +120,7 @@
       <string>Sync using a Latch</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">sync_buttonGroup</string>
+      <string notr="true">buttonGroup_sync</string>
      </attribute>
     </widget>
     <widget class="QRadioButton" name="radioButton_syncBarrier">
@@ -136,7 +136,7 @@
       <string>Sync using a Barrier</string>
      </property>
      <attribute name="buttonGroup">
-      <string notr="true">sync_buttonGroup</string>
+      <string notr="true">buttonGroup_sync</string>
      </attribute>
     </widget>
    </widget>
@@ -151,6 +151,64 @@
     </property>
     <property name="text">
      <string>Test Sync</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="promise_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>10</y>
+      <width>240</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Promise</string>
+    </property>
+    <widget class="QRadioButton" name="radioButton_matrixCalc">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Matrix Calculation</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_promise</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_withException">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>180</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>With Exception</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_promise</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="promise_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>120</y>
+      <width>120</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Test Promise</string>
     </property>
    </widget>
   </widget>
@@ -175,7 +233,8 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="lockOrder_buttonGroup"/>
-  <buttongroup name="sync_buttonGroup"/>
+  <buttongroup name="buttonGroup_lockOrder"/>
+  <buttongroup name="buttonGroup_sync"/>
+  <buttongroup name="buttonGroup_promise"/>
  </buttongroups>
 </ui>

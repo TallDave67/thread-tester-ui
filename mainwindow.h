@@ -23,6 +23,7 @@ public:
     // Button handlers
     void handleButton_testLockOrder();
     void handleButton_testSync();
+    void handleButton_testPromise();
 
     // Tests
     void runTest(QString group, int id, QString name);
